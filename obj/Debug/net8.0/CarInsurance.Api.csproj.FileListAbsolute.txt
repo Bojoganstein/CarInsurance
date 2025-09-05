@@ -1,5 +1,10 @@
+D:\Projects\CarInsurance.Api\bin\Debug\net8.0\appsettings.json
+D:\Projects\CarInsurance.Api\bin\Debug\net8.0\CarInsurance.Api.staticwebassets.endpoints.json
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\CarInsurance.Api.exe
+D:\Projects\CarInsurance.Api\bin\Debug\net8.0\CarInsurance.Api.deps.json
+D:\Projects\CarInsurance.Api\bin\Debug\net8.0\CarInsurance.Api.runtimeconfig.json
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\CarInsurance.Api.dll
+D:\Projects\CarInsurance.Api\bin\Debug\net8.0\CarInsurance.Api.pdb
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -10,6 +15,7 @@ D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memor
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
@@ -25,10 +31,6 @@ D:\Projects\CarInsurance.Api\bin\Debug\net8.0\System.Diagnostics.DiagnosticSourc
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\System.IO.Pipelines.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\System.Text.Encodings.Web.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\System.Text.Json.dll
-D:\Projects\CarInsurance.Api\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
-D:\Projects\CarInsurance.Api\bin\Debug\net8.0\appsettings.json
-D:\Projects\CarInsurance.Api\bin\Debug\net8.0\CarInsurance.Api.staticwebassets.endpoints.json
-D:\Projects\CarInsurance.Api\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\runtimes\browser-wasm\nativeassets\net8.0\e_sqlite3.a
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\runtimes\linux-arm\native\libe_sqlite3.so
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\runtimes\linux-arm64\native\libe_sqlite3.so
@@ -48,6 +50,7 @@ D:\Projects\CarInsurance.Api\bin\Debug\net8.0\runtimes\osx-arm64\native\libe_sql
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\runtimes\osx-x64\native\libe_sqlite3.dylib
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\runtimes\win-arm\native\e_sqlite3.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
+D:\Projects\CarInsurance.Api\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 D:\Projects\CarInsurance.Api\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\Projects\CarInsurance.Api\obj\Debug\net8.0\CarInsurance.Api.csproj.AssemblyReference.cache
@@ -72,8 +75,5 @@ D:\Projects\CarInsurance.Api\obj\Debug\net8.0\CarInsur.856E8384.Up2Date
 D:\Projects\CarInsurance.Api\obj\Debug\net8.0\CarInsurance.Api.dll
 D:\Projects\CarInsurance.Api\obj\Debug\net8.0\refint\CarInsurance.Api.dll
 D:\Projects\CarInsurance.Api\obj\Debug\net8.0\CarInsurance.Api.pdb
-D:\Projects\CarInsurance.Api\bin\Debug\net8.0\CarInsurance.Api.deps.json
-D:\Projects\CarInsurance.Api\bin\Debug\net8.0\CarInsurance.Api.runtimeconfig.json
-D:\Projects\CarInsurance.Api\bin\Debug\net8.0\CarInsurance.Api.pdb
 D:\Projects\CarInsurance.Api\obj\Debug\net8.0\CarInsurance.Api.genruntimeconfig.cache
 D:\Projects\CarInsurance.Api\obj\Debug\net8.0\ref\CarInsurance.Api.dll

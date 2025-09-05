@@ -21,6 +21,73 @@
   },
   {
     "ContainingType": "CarInsurance.Api.Controllers.CarsController",
+    "Method": "ClaimInsurance",
+    "RelativePath": "api/cars/{carId}/claims",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      },
+      {
+        "Name": "date",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "amount",
+        "Type": "System.Int64",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "CarInsurance.Api.Dtos.ClaimInsuranceResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CarInsurance.Api.Controllers.CarsController",
+    "Method": "GetCarHistory",
+    "RelativePath": "api/cars/{carId}/history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[CarInsurance.Api.Models.CarHistoryItem, CarInsurance.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CarInsurance.Api.Controllers.CarsController",
     "Method": "IsInsuranceValid",
     "RelativePath": "api/cars/{carId}/insurance-valid",
     "HttpMethod": "GET",

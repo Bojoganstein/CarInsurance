@@ -1,5 +1,6 @@
 using CarInsurance.Api.Data;
 using CarInsurance.Api.Dtos;
+using CarInsurance.Api.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarInsurance.Api.Services;
@@ -7,6 +8,11 @@ namespace CarInsurance.Api.Services;
 public class CarService(AppDbContext db)
 {
     private readonly AppDbContext _db = db;
+
+    public bool DoesCarExist(long carId)
+    {
+        return _db.Cars.Any(c => c.Id == carId);
+    }
 
     public async Task<List<CarDto>> ListCarsAsync()
     {
@@ -18,13 +24,46 @@ public class CarService(AppDbContext db)
 
     public async Task<bool> IsInsuranceValidAsync(long carId, DateOnly date)
     {
-        var carExists = await _db.Cars.AnyAsync(c => c.Id == carId);
-        if (!carExists) throw new KeyNotFoundException($"Car {carId} not found");
-
         return await _db.Policies.AnyAsync(p =>
             p.CarId == carId &&
             p.StartDate <= date &&
             p.EndDate >= date
         );
+    }
+
+    public async Task<bool> ClaimInsuranceAsync(long carId, DateOnly date)
+    {
+        return await IsInsuranceValidAsync(carId, date);
+    }
+
+    public List<CarHistoryItem> GetCarHistory(long carId)
+    {
+        var policies = _db.Policies
+            .Where(p => p.CarId == carId)
+            .Select(p => new CarHistoryItem
+            {
+                Type = "Policy",
+                Date = p.StartDate,
+                PolicyId = p.Id,
+                Provider = p.Provider,
+                StartDate = p.StartDate,
+                EndDate = p.EndDate
+            }).ToListAsync();
+
+        var claims = _db.Claims
+            .Where(c => c.CarId == carId)
+            .Select(c => new CarHistoryItem
+            {
+                Type = "Claim",
+                Date = c.ClaimDate,
+                ClaimId = c.Id,
+                ClaimDate = c.ClaimDate,
+                Description = c.Description,
+                Amount = c.Amount
+            }).ToListAsync();
+
+        var history = policies.Result.Concat(claims.Result).OrderBy(d => d.Date).ThenBy(t => t.Type).ToList();
+
+        return history;
     }
 }

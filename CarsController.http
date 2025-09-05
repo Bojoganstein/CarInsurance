@@ -3,10 +3,29 @@ GET https://localhost:61341/api/cars
 Accept: application/json
 
 ### Check insurance validity for a car (example: carId=1, date=2024-06-01)
-GET https://localhost:61341/api/cars/1/insurance-valid?date=2024-06-01
+GET https://localhost:61341/api/cars/2/insurance-valid?date=2025-12-01
 Accept: application/json
 
+### Task 2 : Add Insurance Claim
 
-### Check insurance validity for a car (example: carId=1, date=2024-06-01)
-GET https://localhost:61341/api/cars/1/insurance-valid?date=2024-06-01
+### Check insurance validity for a car and then claim insurance (example: carId=2, date=2025-06-01)
+POST https://localhost:61341/api/cars/2/claims?date=2025-06-01&description=Destroyed&amount=5000
+Accept: application/json
+
+### Check insurance validity for a car and then claim insurance (example: carId=2, date=2029-06-01)
+POST https://localhost:61341/api/cars/2/claims?date=2029-06-01&description=Destroyed&amount=5000
+Accept: application/json
+
+### Check car history
+GET https://localhost:61341/api/cars/1/history
+Accept: application/json
+
+### Task 3 : Add more checks
+
+### Check insurance validity for a car and then claim insurance (example: carId=3, date=2025-06-01)
+POST https://localhost:61341/api/cars/3/claims?date=2025-06-01&description=Destroyed&amount=5000
+Accept: application/json
+
+### Check car history
+GET https://localhost:61341/api/cars/3/history
 Accept: application/json
