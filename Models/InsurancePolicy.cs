@@ -9,5 +9,7 @@ public class InsurancePolicy
 
     public string? Provider { get; set; }
     public DateOnly StartDate { get; set; }
-    public DateOnly? EndDate { get; set; } // intentionally nullable; will be enforced later
+
+    //Task 1: Made EndDate non-nullable 
+    public DateOnly EndDate { get; set; } // intentionally nullable; will be enforced later
 }
