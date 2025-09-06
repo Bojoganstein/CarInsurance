@@ -17,7 +17,7 @@ POST https://localhost:61341/api/cars/2/claims?date=2029-06-01&description=Destr
 Accept: application/json
 
 ### Check car history
-GET https://localhost:61341/api/cars/1/history
+GET https://localhost:61341/api/cars/2/history
 Accept: application/json
 
 ### Task 3 : Add more checks

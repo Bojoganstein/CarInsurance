@@ -21,7 +21,7 @@
   },
   {
     "ContainingType": "CarInsurance.Api.Controllers.CarsController",
-    "Method": "ClaimInsurance",
+    "Method": "RegisterClaimInsurance",
     "RelativePath": "api/cars/{carId}/claims",
     "HttpMethod": "POST",
     "IsController": true,

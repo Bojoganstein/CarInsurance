@@ -31,9 +31,24 @@ public class CarService(AppDbContext db)
         );
     }
 
-    public async Task<bool> ClaimInsuranceAsync(long carId, DateOnly date)
+    public async Task<bool> RegisterClaimInsuranceAsync(long carId, DateOnly date, string description, long amount)
     {
-        return await IsInsuranceValidAsync(carId, date);
+        var isInsuranceValid = await IsInsuranceValidAsync(carId, date);
+
+        if(isInsuranceValid)
+        {
+            _db.Claims.Add(new Claims
+            {
+                CarId = carId,
+                ClaimDate = date,
+                Description = description,
+                Amount = amount
+            });
+
+            _db.SaveChanges();
+        }
+
+        return isInsuranceValid;
     }
 
     public List<CarHistoryItem> GetCarHistory(long carId)

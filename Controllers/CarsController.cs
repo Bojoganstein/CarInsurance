@@ -1,3 +1,4 @@
+using CarInsurance.Api.Data;
 using CarInsurance.Api.Dtos;
 using CarInsurance.Api.Models;
 using CarInsurance.Api.Services;
@@ -37,7 +38,7 @@ public class CarsController(CarService service) : ControllerBase
     }
 
     [HttpPost("cars/{carId:long}/claims")]
-    public async Task<ActionResult<ClaimInsuranceResponse>> ClaimInsurance(long carId, [FromQuery] string date, [FromQuery] string description, [FromQuery] long amount)
+    public async Task<ActionResult<ClaimInsuranceResponse>> RegisterClaimInsurance(long carId, [FromQuery] string date, [FromQuery] string description, [FromQuery] long amount)
     {
         if (!_service.DoesCarExist(carId))
             return NotFound();
@@ -50,8 +51,9 @@ public class CarsController(CarService service) : ControllerBase
 
         try
         {
-            var success = await _service.ClaimInsuranceAsync(carId, parsed);
+            var success = await _service.RegisterClaimInsuranceAsync(carId, parsed, description, amount);
             return Ok(new ClaimInsuranceResponse(carId, parsed.ToString("yyyy-MM-dd"), description, amount, success));
+
         }
         catch (KeyNotFoundException)
         {
