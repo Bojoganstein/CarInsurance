@@ -1,4 +1,5 @@
 using CarInsurance.Api.Data;
+using CarInsurance.Api.ScheduledTasks.PolicyExpiry;
 using CarInsurance.Api.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,10 @@ builder.Services.AddScoped<CarService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Task 4: Scheduled Task
+builder.Services.AddSingleton<TimeProvider>(TimeProvider.System);
+builder.Services.AddHostedService<PolicyExpiryLogger>();
 
 var app = builder.Build();
 

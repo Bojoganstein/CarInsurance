@@ -1,4 +1,5 @@
 using CarInsurance.Api.Models;
+using CarInsurance.Api.ScheduledTasks.PolicyExpiry;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarInsurance.Api.Data;
@@ -9,6 +10,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Car> Cars => Set<Car>();
     public DbSet<InsurancePolicy> Policies => Set<InsurancePolicy>();
     public DbSet<Claims> Claims => Set<Claims>();
+    public DbSet<ProcessedExpiration> ProcessedExpirations => Set<ProcessedExpiration>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -30,6 +32,11 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             .Property(p => p.ClaimDate)
             .IsRequired();
 
+        // Task 4 : Scheduled Task
+
+        modelBuilder.Entity<ProcessedExpiration>()
+            .HasKey(p => p.PolicyId);
+
         // EndDate intentionally left nullable for a later task
     }
 }
@@ -50,14 +57,24 @@ public static class SeedData
         db.Cars.AddRange(car1, car2);
         db.SaveChanges();
 
-
         //Added EndDate for InsurancePolicy where Provider is Groupama
+
+        //Testing Task 1,2,3
         db.Policies.AddRange(
-            new InsurancePolicy { CarId = car1.Id, Provider = "Allianz", StartDate = new DateOnly(2024,1,1), EndDate = new DateOnly(2024,12,31) },
-            new InsurancePolicy { CarId = car1.Id, Provider = "Groupama", StartDate = new DateOnly(2025,1,1), EndDate = new DateOnly(2026, 1, 1) }, // open-ended on purpose (Task 1: Added mandatory EndDate)
-            new InsurancePolicy { CarId = car2.Id, Provider = "Allianz", StartDate = new DateOnly(2025,3,1), EndDate = new DateOnly(2028,12,30) }
+            new InsurancePolicy { CarId = car1.Id, Provider = "Allianz", StartDate = new DateOnly(2024, 1, 1), EndDate = new DateOnly(2024, 12, 31) },
+            new InsurancePolicy { CarId = car1.Id, Provider = "Groupama", StartDate = new DateOnly(2025, 1, 1), EndDate = new DateOnly(2026, 1, 1) }, // open-ended on purpose (Task 1: Added mandatory EndDate)
+            new InsurancePolicy { CarId = car2.Id, Provider = "Allianz", StartDate = new DateOnly(2026, 1, 1), EndDate = new DateOnly(2028, 12, 31) }
         );
         db.SaveChanges();
+
+        //Testing Task 4
+        //db.Policies.AddRange(
+        //    new InsurancePolicy { CarId = car1.Id, Provider = "Allianz", StartDate = new DateOnly(2024,1,1), EndDate = new DateOnly(2024,12,31) },
+        //    new InsurancePolicy { CarId = car1.Id, Provider = "Groupama", StartDate = new DateOnly(2025,1,1), EndDate = new DateOnly(2026, 1, 1) }, // open-ended on purpose (Task 1: Added mandatory EndDate)
+        //    new InsurancePolicy { CarId = car2.Id, Provider = "Allianz", StartDate = new DateOnly(2025,1,1), EndDate = new DateOnly(2025,6,1) },
+        //    new InsurancePolicy { CarId = car2.Id, Provider = "Groupama", StartDate = new DateOnly(2025, 6, 1), EndDate = new DateOnly(2025, 9, 5) }
+        //);
+        //db.SaveChanges();
 
         //Task 2 : Added Claims data
         db.Claims.AddRange(
